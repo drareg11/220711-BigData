@@ -37,7 +37,7 @@ set2 = {2, 3, 4, 5}
 
 def intersect_sets(set1, set2) -> set:
 	set3 = set1.intersection(set2)
-	if set3 == set():
+	if set3 == set(): # set instructor to implement an empty set
 		print("There are no common values")
 	print(set3)
 intersect_sets(set1, set2)
@@ -49,7 +49,7 @@ intersect_sets(set1, set2)
 
 
 def create_dict(lst_keys, lst_values) -> dict:
-	result = (dict)
+	result = {} # or result=(dict) is the JAVA way
 	length = len(lst_keys)
 	for i in range(length):
 		result[lst_keys[i]] = lst_values[i]
@@ -57,3 +57,7 @@ def create_dict(lst_keys, lst_values) -> dict:
 	return result
 
 create_dict(["fred", "stacy", "bob"], [(1, 5), (4, 7), (9, 2)])
+
+
+
+

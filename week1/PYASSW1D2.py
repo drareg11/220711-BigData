@@ -1,11 +1,11 @@
 #print("Hello, World")
 
-#def sum_2(x, y) -> int:
-    #if(x == y):
-       # return(3*(x + y))
-   # else:
-       # return(x + y)
-#print(sum_2(3,6))
+def sum_2(x, y) -> int:
+    if(x == y):
+       return(3* (x + y))
+    else:
+        return(x + y )
+print(sum_2(3,6))
 
 #def abs_diff(n) -> int:
  #absDiff = (n-51)
@@ -35,10 +35,10 @@
     #else:
        # return "if"+word 
 
-def cha
+# def cha
 
 
-     '''
+''''
 
 
 #sum
