@@ -1,5 +1,5 @@
 # ******* JOURNAL APP********
-#Data should be read and written to CSV or JSON files
+#Data should be read and written to CSV(comma, seperated, vales) or JSON files
 
 #Command Line Interface where users can interact with the application while its running
 #Application should read in data from a file and be displayed in some way
@@ -19,14 +19,24 @@
 
 
 class Nutrition():
-    def __init__(self, name_food, calorie, fat, vit, carb, protein, sodium=""):
+    def __init__(self, name_food, calorie, fat, carb, protein, sodium, sugars=""):
         self.name_food = str(name_food)
         self.calorie = int(calorie)
         self.fat = int(fat)
-        self.vit = int(vit)
         self.carb = int(carb)
         self.protein = int(protein)
         self.sodium = int(sodium)
+        self.sugars = int(sugars)
 
-    def __str__(self):
-        return 
+    def __str__(self): #overriding string default
+        return "FOOD ITEM:" + self.name_food + ", Calories: " + str(self.calorie) + ", Fats: " + str(self.fat) + ", Carbs: " + str(self.carb) + ", Protein: " + str(self.protein) + ", Sodium: " + str(self.sodium) + ", Sugars: " + str(self.sugars)
+
+
+class Breakfast(Nutrition):
+    pass
+
+class Lunch(Nutrition):
+    pass
+
+class Dinner(Nutrition): 
+    pass
