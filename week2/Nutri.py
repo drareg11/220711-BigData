@@ -19,8 +19,8 @@
 
 
 class Nutrition():
-    def __init__(self, name_food, calorie, fat, carb, protein, sodium, sugars=""):
-        self.name_food = str(name_food)
+    def __init__(self, food_item, calorie, fat, carb, protein, sodium, sugars=""):
+        self.food_item = str(food_item)
         self.calorie = int(calorie)
         self.fat = int(fat)
         self.carb = int(carb)
@@ -29,7 +29,7 @@ class Nutrition():
         self.sugars = int(sugars)
 
     def __str__(self): #overriding string default
-        return "FOOD ITEM:" + self.name_food + ", Calories: " + str(self.calorie) + ", Fats: " + str(self.fat) + ", Carbs: " + str(self.carb) + ", Protein: " + str(self.protein) + ", Sodium: " + str(self.sodium) + ", Sugars: " + str(self.sugars)
+        return "FOOD ITEM:" + self.food_item + ", Calories: " + str(self.calorie) + ", Fats: " + str(self.fat) + ", Carbs: " + str(self.carb) + ", Protein: " + str(self.protein) + ", Sodium: " + str(self.sodium) + ", Sugars: " + str(self.sugars)
 
 
 class Breakfast(Nutrition):

@@ -1,3 +1,6 @@
+from Nutri import Nutrition, Breakfast, Lunch, Dinner
+
+
 def main():
     
     print("****WELCOME TO NUTRI-DIARIES!****")
@@ -24,15 +27,66 @@ def main():
 
 
 def save_nutrients(fname, lst_nutrients):
-    pass
+    with open(fname, "w") as f:
+        for nutrition in lst_nutrients:
+            if type(nutrition) == Breakfast:
+                f.write("Breakfast:, " + nutrition.food_item + ", CAL: " + str(nutrition.calorie) + ", FAT: " + str(nutrition.fat)  + ",  CARB: " + str(nutrition.carb) + ", PROT: " + str(nutrition.protein) + ", SODI: " + str(nutrition.sodium) + ", SUGAR: " + str(nutrition.sugars))
+
+            elif type(nutrition) == Lunch:
+                f.write("Lunch:, " + nutrition.food_item + ", CAL: " + str(nutrition.calorie) + ", FAT: " + str(nutrition.fat)  + ",  CARB: " + str(nutrition.carb) + ", PROT: " + str(nutrition.protein) + ", SODI: " + str(nutrition.sodium) + ", SUGAR: " + str(nutrition.sugars))
+            
+            elif type(nutrition) == Dinner:
+                f.write("Dinner:, " + nutrition.food_item + ", CAL: " + str(nutrition.calorie) + ", FAT: " + str(nutrition.fat)  + ",  CARB: " + str(nutrition.carb) + ", PROT: " + str(nutrition.protein) + ", SODI: " + str(nutrition.sodium) + ", SUGAR: " + str(nutrition.sugars))
+            else: 
+                pass
 
 def load_nutrients(fname):
-    pass
+    lst_nutrients = []
 
-def insert_nutrition():
-    pass
+    with open(fname, "r") as f:
+        for line in f:
+            info = line.split(',')
+            if info[0] == "Breakfast":
+                nutrition = Breakfast(info[1], info[2], info[3], info[4], info[5], info[6], info[7])
+            elif info[0] == "Lunch":
+                nutrition = Lunch(info[1], info[2], info[3], info[4], info[5], info[6], info[7])
+            elif info[0] == "Dinner":
+                nutrition = Dinner(info[1], info[2], info[3], info[4], info[5], info[6], info[7])
+            else:
+                nutrition = None
 
+            if nutrition != None:
+                lst_nutrients.append(nutrition)
+    return lst_nutrients
 
+def insert_nutrition() -> Nutrition:
+    print("\nPlease select which meal we will be logging today!")
+    print("\t1) Breakfast")
+    print("\t2) Lunch")
+    print("\t3) Dinner")
+    print("\t4) quit")
+    meal_type = input(">>> ")
+
+    if meal_type == "4":
+        return None
+    
+    food_item = input("\nEnter Food item: \n>>>")
+    calorie = int(input("\nEnter Calories: \n>>>"))
+    fat = int(input("\nEnter Fat Content: \n>>>"))
+    carb = int(input("\nEnter Carbohydrates: \n>>>"))
+    protein = int(input("\nEnter Protein: \n>>>"))
+    sodium = int(input("\nEnter Sodium: \n>>>"))
+    sugars = int(input("\nEnter Sugars: \n>>>"))
+
+    if meal_type == "1":
+        nutrition = Breakfast(food_item, calorie, fat, carb, protein, sodium, sugars)
+    elif meal_type == "2":
+        nutrition = Lunch(food_item, calorie, fat, carb, protein, sodium, sugars)
+    elif meal_type == "3":
+        nutrition = Dinner(food_item, calorie, fat, carb, protein, sodium, sugars)
+    else: 
+        nutrition = None
+    return nutrition
 
 if __name__ == "__main__":
     main()
